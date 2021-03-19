@@ -23,25 +23,23 @@ The goals / steps of this project are the following:
 
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
+My pipeline consisted of 5 steps.
+1) We Read our Image in a grey scale fromat
+2) we do smoothing before applying canny algorithm by using Kernel size of 3
+3) Apply Canny Detection with a low threshold 1 : 3 to high threshold 
+4) Determine Region of interest to detect Lane lines in Image
+5) using hough transfrom to find lines
+6) separate line segments into left lines and right lines
+    For each line:
+     we calculate average slope and intercept
+7) calculate x_min and x_max values using intercept, slope, y_min and y_max
 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
+I have a problem with calculating vertices, Need some smart implementation to calculate it without putting it hard coded
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+A possible improvement would be to write a function to calculate Vertices parames instead of putting it as hard coded values that depend on the data
 
-Another potential improvement could be to ...
